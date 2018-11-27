@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>红包信息输入</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <script>
+        function en8(text) {
+           const code = encodeURIComponent(text);
+              const bytes = [];
+              for (var i = 0; i < code.length; i++) {
+                  const c = code.charAt(i);
+                   if (c === '%') {
+                      const hex = code.charAt(i + 1) + code.charAt(i + 2);
+                      const hexVal = parseInt(hex, 16);
+                          bytes.push(hexVal);
+                             i += 2;
+                  } else bytes.push(c.charCodeAt(0));
+                 }   
+            return bytes;
+        }
+        function jumptoanother(){
+            var imgres=document.getElementById(imgres);
+            var sender=document.getElementById(sender);
+            var nne=document.getElementById(nme);
+            var money=document.getElementById(money);
+            if(imgres.innerHTML!=""&&sender.innerHTML!=""&&nne.innerHTML!=""&&money.innerHTML!=""){
+                window.open("display.html?imgres="+en8(imgres.innerHTML())+"&sender="+en8(sender.innerHTML())+"&nme="+en8(nne.innerHTML())+"&money="+en8(money.innerHTML()));
+            }else{
+                alert("WARNING:DATA_INCOMPLETE");
+            }
+        }
+    </script>
+</head>
+<body style="align-content: center;text-align: center;vertical-align: middle;margin-top: 150px">
+    <form style="line-height: 200%;font-size: 18px;" action="display.html" method="PUT" >
+        <label for="imgres">头图</label>
+        <input type="text" id="imgres" name="imgres" value="rpkg.png">
+        <br>
+        <label for="sender" style="width: 50%;">发者</label>
+        <input type="text" name="sender" id="sender">
+        <br>
+        <label for="nme">昵称</label>
+        <input type="text" id="nme" name="nme">
+        <br>
+        <label for="money">钱数</label>
+        <input type="text" name="money" id="money">
+        <br><br>
+        <input type="submit"  style="width: 200px;height: 50px;font-size: 20px;" value="提交">
+    </form>
+</body>
+</html>
