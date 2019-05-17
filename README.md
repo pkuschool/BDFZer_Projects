@@ -3,3 +3,5 @@
 极小项目也可以直接丢进来。
 - shan-mx/MovieDownloader_Py
 - https://github.com/shan-mx/MovieDownloader_Py
+- steven12138/Wegram
+- https://github.com/steven12138/Wegram
